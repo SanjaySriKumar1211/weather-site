@@ -3,23 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanjay Weather App</title>
+    <title>Professional Weather App</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
     <div class="container">
-        <h1>🌤️ Weather App</h1>
-
-        <input type="text" id="city" placeholder="Enter city name">
-        <button onclick="getWeather()">Search</button>
-
-        <div class="result" id="result-box">
-            <h2 id="temp"></h2>
-            <p id="details"></p>
+        <div class="search-bar">
+            <input type="text" placeholder="Enter city name" spellcheck="false" id="city-input">
+            <button id="search-button">
+                Search
+            </button>
         </div>
+        
+        <main class="current-weather-card">
+            <h1 class="city-name">City, Country</h1>
+            <p class="date-time">Loading...</p>
+            <div class="main-info">
+                <img class="weather-icon" src="icons/sun.svg" alt="Weather condition icon">
+                <div class="temp-group">
+                    <p class="temp">--°</p>
+                    <p class="description">Loading data</p>
+                </div>
+            </div>
+            <div class="high-low">
+                <span class="temp-high">H: --°</span>
+                <span class="temp-low">L: --°</span>
+            </div>
+        </main>
+
+        <section class="details-grid">
+            <div class="detail-item">
+                <span class="label">Feels Like</span>
+                <span class="value" id="feels-like">--°C</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">UV Index</span>
+                <span class="value" id="uv-index">--</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Wind</span>
+                <span class="value" id="wind-speed">-- km/h</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Humidity</span>
+                <span class="value" id="humidity">--%</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Pressure</span>
+                <span class="value" id="pressure">-- hPa</span>
+            </div>
+            <div class="detail-item">
+                <span class="label">Visibility</span>
+                <span class="value" id="visibility">-- km</span>
+            </div>
+        </section>
+
+        <section class="forecast-section" style="display: none;">
+            <h2>5-Day Forecast</h2>
+            <div class="forecast-list" id="forecast-list">
+                </div>
+        </section>
     </div>
 
-<script src="script.js"></script>
+    <div class="error" style="display: none;">City not found. Please try again.</div>
 </body>
 </html>
